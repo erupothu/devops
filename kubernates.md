@@ -36,4 +36,6 @@ login to AWS console and create IAM user with programtic access with access key 
 > kubectl cluster-info  
 > minikube ssh  
 > minikube dashboard  
-> minikube dashboard --url  
+> minikube dashboard --url
+> kubectl proxy --address='0.0.0.0' --disable-filter=true (to access remotely)
+> 
