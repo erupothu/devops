@@ -20,7 +20,7 @@
 > docker ps (container)  
 > docker ps -a (running containers)  
 > docker build image_name [path_to_code] or docker build -f [path_to_mydockerfile.dockerfile] image_name [path_to_code]  
-> docker run -p existing_port:new_port image_name  --name container_name  
+> docker run -p target_port:acutal_port image_name  --name container_name  
 > docker kill container_name  
 > docker rm container_name  
 > docker rmi image_name  
@@ -44,6 +44,16 @@ FROM nginx:latest
 COPY ./index.html /usr/share/nginx/html/index.html
 ```
 
-> docker build -t webserver .  
+> docker build -t webserver .   
 > docker run -it --rm -d -p 8080:80 --name web webserver  
 
+#### Docker Registry  
+
+1. Create docker hub account  
+2. In account security generate token and save  
+
+> docker login -u [username]  
+> [password/generated_token]  
+>
+> docker image tag cust_nginx harishe/cust_nginx:web  
+> docker push harishe/cust_nginx:web  
