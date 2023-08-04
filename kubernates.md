@@ -38,4 +38,7 @@ login to AWS console and create IAM user with programtic access with access key 
 > minikube dashboard  
 > minikube dashboard --url
 > kubectl proxy --address='0.0.0.0' --disable-filter=true (to access remotely)
-> 
+
+#### Docker Repository:
+
+
