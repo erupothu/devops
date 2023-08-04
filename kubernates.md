@@ -214,6 +214,13 @@ data:
   password: asdfwerwerfserttr
 ```
 
+```namespace.yaml
+apiVersiion: v1
+kind: Namespace
+metadata:
+  name: my-ns-1
+```
+
 #### kubectl commands  
 > kubectl run nginxrun --image=nginx  
 > kubctl get pods   
@@ -256,8 +263,32 @@ data:
 >
 > kubectl create secret generic mysecret --from-fle=./username.txt --from-file=./password.txt  
 > kubectl create secret generic mysecret --from-literal='usermame' --from-literal='password'  
-> kubectl get secrets  
-> 
+> kubectl get secrets
+>
+> kubectl apply -f namespace.yaml
+> kubectl get ns
+> kubectl run my-redis --image=redis --namespace=my-ns-1
+> kubectl get deployment --all-namespace
+> kubectl get deployment --namespace=my-ns1
+> kubectl config view
+> kubectl config set-context my-context-2 --namespace=my-ns-2 --cluster=minikube   --user=minikube
+> kubectl config use-context my-context-2
+> kubectl get deploymnets
+> kubectl delete ns my-ns-2
 
-#### 
+#### AWS CLuster creation
+
+1. create master ec2 instance  
+2. install docker  
+3. cat <<EOF > /etc/sysctl.d/k8s.conf  
+   a. net.bridge.bridge-nf-call-ip6tables=1  
+   b. net.bridge.bridge-nf-call-iptables=1  
+   EOF  
+4. vi /etc/sysconfig/selinux  
+5. sed -i --follow-symlinks 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/sysconfig/selinux  
+6. swapoff -a  
+
+#### kubeadmin
+> kubeadmin init --pod-network-cidr=192.168.0.0/16 --ignore-preflight-errors=NumCPu  
+> 
 
