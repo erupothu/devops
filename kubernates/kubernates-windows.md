@@ -7,6 +7,7 @@ download and install putty for windows
 download and install aws-cli for windows 
 
 set PATH="path to kubectl path"  
+> choco install kubernetes-helm  
 > kubectl version  
 > minikube start --driver=virtualbox  
 > kubectl get pods  
